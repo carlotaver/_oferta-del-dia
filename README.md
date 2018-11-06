@@ -1,3 +1,9 @@
+Notas Intro to React
+-Everything in React is a component
+
+- A component is a reusable piece of your website.
+- Webpack is a bundler
+
 # Oferta del dia
 
 Playing with React, Firebase and friends.
