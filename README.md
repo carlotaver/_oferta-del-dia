@@ -11,12 +11,12 @@ Ambos son equivalentes
 ````jsx
 class Dave extends React.Component {
   render() {
-    return <p>"What do you think you are doing,Dave?</p>;
+    return <p>What do you think you are doing,Dave?</p>;
   }
 }
 ```jsx
 const Yo = () => {
-  return <p>"What do you think you are doing, Yo?"</p>;
+  return <p>What do you think you are doing, Yo?</p>;
 };
 
 
