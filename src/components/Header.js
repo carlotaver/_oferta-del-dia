@@ -2,6 +2,7 @@ import React from "react";
 
 class Header extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <header className="top">
         <h1>
@@ -13,7 +14,7 @@ class Header extends React.Component {
           Day
         </h1>
         <h3 className="tagLine">
-          <span>Fresh Daily</span>
+          <span>{this.props.tagline}</span>
         </h3>
       </header>
     );

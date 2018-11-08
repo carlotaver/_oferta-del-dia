@@ -4,6 +4,13 @@ Notas Intro to React
 - A component is a reusable piece of your website.
 - Webpack is a bundler
 
+## `\$ capturar un obxecto
+
+## Props.
+
+Props.similares a los atributos en HTML.una forma de (get data)(state) un componente.
+state:donde viven los datos
+
 ## Como declarar un componente
 
 Ambos son equivalentes
