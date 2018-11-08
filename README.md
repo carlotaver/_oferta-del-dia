@@ -6,6 +6,20 @@ Notas Intro to React
 
 ## `\$ capturar un obxecto
 
+### compoñentes con funciones(staless functional components)
+
+`````jsx
+class Header extends React.Component {
+  render() {
+    return (
+    <h3 className="tagline">
+    <span>{this.props.tagline}</span>
+    </h3>
+    );
+  }
+};
+
+
 ## Props.
 
 Props.similares a los atributos en HTML.una forma de (get data)(state) un componente.
@@ -32,7 +46,7 @@ const Yo = () => {
 Playing with React, Firebase and friends.
 
 ## 👾🤖🚀 Clone, install... GO 🚀🤖👾
-````
+`````
 
 ❯ git clone git@github.com:carlotaver/oferta-del-dia.git
 ❯ cd oferta-del-dia
