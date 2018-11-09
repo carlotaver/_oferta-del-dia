@@ -1,3 +1,13 @@
+Routing and Routers
+
+There's at least 3 great options for routing in React:
+
+    react-router
+    next.js
+    @reach/router
+
+We are going to use @reach/router but there's a branch with react/router too here
+
 Notas Intro to React
 -Everything in React is a component
 
