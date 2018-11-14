@@ -103,3 +103,43 @@ v8.12.0
 - [CMDer](http://cmder.net/): Command Line Emulator for Windows.
 - [Create React App 2](https://github.com/facebook/create-react-app)
 ```
+
+### Eventos en React
+
+Syntectic Events en React
+Hey React! Cuando alguien clica el boton,ejecuta esa this(handleCLick),por favor:
+
+```jsx
+<button onClick={this.handleCLick}>
+```
+
+### 0.Binding`this` inside un Componente
+
+Enganchar a nuestros componentes this.Binding our own functions/methods inside a `component`
+
+###Method1 Inside the `constructor`
+
+``jsx
+class StorePicker extends React.Component {
+constructor(props){
+super(props);
+
+    this.goToStore = this.goToStore.bind(this);
+
+}
+
+goToStore(event){}
+
+}
+
+````
+
+### Method2 Declarar una `propiedad` instead de `method`/`function` inside el componente
+
+```jsx
+class StorePicker extends React.Component {
+goToStore =event => {};
+}
+````
+
+Recuerda:Si tu must access `this` inside a custom method/function en un componente,necesitas bind `this` con Method1 o usando Method2.
