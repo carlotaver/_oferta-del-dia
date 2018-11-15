@@ -97,14 +97,14 @@ v8.12.0
 ❯ git push -u origin master
 
 ```
-### More tools
+###4 More tools
 
 - [React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) extension for Firefox.
 - [CMDer](http://cmder.net/): Command Line Emulator for Windows.
 - [Create React App 2](https://github.com/facebook/create-react-app)
 ```
 
-### Eventos en React
+###5 Eventos en React
 
 Syntectic Events en React
 Hey React! Cuando alguien clica el boton,ejecuta esa this(handleCLick),por favor:
@@ -113,7 +113,7 @@ Hey React! Cuando alguien clica el boton,ejecuta esa this(handleCLick),por favor
 <button onClick={this.handleCLick}>
 ```
 
-### 0.Binding`this` inside un Componente
+### 6.Binding`this` inside un Componente
 
 Enganchar a nuestros componentes this.Binding our own functions/methods inside a `component`
 
@@ -143,3 +143,12 @@ goToStore =event => {};
 ````
 
 Recuerda:Si tu must access `this` inside a custom method/function en un componente,necesitas bind `this` con Method1 o usando Method2.
+
+### 7 State en React
+
+-**State** es un JavaScript objeto que vive dentro de un componente y almacena todos los datos del componente y problamente los de los hijos que necesite.  
+-**State** es solamente un JavaSrcipt objeto que contiene(holds) datos.
+React filosofía> (update) actualiza los datos(state) y deja que React coja y actualize los componentes por nós(let).
+Tu nuncas puedes pasar datos para arriba,solo para abajo.
+
+Funciones que actualizan estado y el estado tienen que estar en el mismo componente.
