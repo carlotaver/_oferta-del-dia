@@ -261,3 +261,67 @@ React filosofía> (update) actualiza los datos(state) y deja que React coja y ac
 Tu nuncas puedes pasar datos para arriba,solo para abajo.
 
 Funciones que actualizan estado y el estado tienen que estar en el mismo componente.
+
+## x. Production build
+
+Just run
+
+```sh
+>npm run build
+```
+
+### Deploying to `now`
+
+-[Now -Global Serverless Deployments]
+-Create React App
+
+```
+>npm install --g now
+❯ now -v
+12.1.3
+>npm install serve
+```
+
+##Change `start` por `dev`.
+
+```json
+"scripts": {
+"dev": "react-scripts start",
+}
+```
+
+##Create a `now.json`
+
+```json
+{
+  "version": 2,
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": ".*", "dest": "/index.html" }
+  ]
+}
+```
+
+##Create a custom alias
+
+```
+>now alias https://oferta-del-dia-ib9i5t5ue.now.sh obradoiroTeoFTW
+```
+
+You can access your site through `https://obradoiroteoftw.now.sh/
+
+## Deploy
+
+###Deploy to Netlify
+
+❯ npm install -g netlify-cli
+❯ netlify --version
+netlify-cli/2.2.1 darwin-x64 node-v8.12.0
+
+Create a \_redirects file point_down
+
+/\* /index.html 200
+
+❯ cp \_redirects build/
+❯ netlify deploy
