@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "alias": ["ObradoiroTeeo"],
+  "routes": [
+    { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": ".*", "dest": "/index.html" }
+  ]
+}

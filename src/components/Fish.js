@@ -3,7 +3,7 @@ import { formatPrice } from "../helpers";
 
 class Fish extends React.Component {
   render() {
-    const { name, image, desc, price, status } = this.props.fishDetails;
+    const { name, image, desc, price } = this.props.fishDetails;
 
     return (
       <li className="menu-fish">
