@@ -325,3 +325,10 @@ Create a \_redirects file point_down
 
 ❯ cp \_redirects build/
 ❯ netlify deploy
+
+###
+
+return <li>Sorry {fish ? fish.name : "product"} is not available!</li>;
+Si existe poner el resultado sino poner producto
+cambio
+return <li key={orderKey}>Sorry {fish.name} is not available!</li>;
