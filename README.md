@@ -1,270 +1,231 @@
-# Oferta del dia
+Oferta del dia
 
 Playing with React, Firebase and friends.
+space_invaderrobotrocket Clone, install... GO rocketrobotspace_invader
 
-## 👾🤖🚀 Clone, install... GO 🚀🤖👾
-
-```
 ❯ git clone git@github.com:davidgchaves/oferta-del-dia.git
 ❯ cd oferta-del-dia
 ❯ npm install
-```
 
-## 0. Installation and First Steps
+0. Installation and First Steps
+   How to install Node
 
-### How to install Node
+Since we are using fish shell, we need to:
 
-Since we are using [fish shell](https://fishshell.com/), we need to:
+    Install NVM
 
-1. Install [NVM](https://github.com/creationix/nvm)
-
-```
 ❯ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-```
 
-2. Install [fish-nvm](https://github.com/FabioAntunes/fish-nvm)
+    Install fish-nvm
 
-```
 ❯ fisher add FabioAntunes/fish-nvm
-```
 
-3. Install [Node 8](https://nodejs.org/en/) with NVM
+    Install Node 8 with NVM
 
-```
 ❯ nvm install 8
 ❯ node --version
 v8.12.0
 ❯ nvm alias default 8.12.0
-```
 
-### How can I sync the project with a remote GitHub repository
+How can I sync the project with a remote GitHub repository
 
-```
 ❯ git remote add origin git@github.com:davidgchaves/oferta-del-dia.git
 ❯ git push -u origin master
-```
 
-### More tools
+More tools
 
-- [React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) extension for Firefox.
-- [CMDer](http://cmder.net/): Command Line Emulator for Windows.
-- [Create React App 2](https://github.com/facebook/create-react-app)
+    React Developer Tools extension for Firefox.
+    CMDer: Command Line Emulator for Windows.
+    Create React App 2
 
-### Troubleshooting
+Troubleshooting
 
 Try
 
-```
 ❯ rm -rf node_modules/
 ❯ rm -rf package-lock.json
 ❯ npm install
 ❯ npm start
-```
 
-## 1. Intro to React
+1. Intro to React
 
-- Everything in react is a component!
-- A component is a reusable piece of code.
-- Webpack is a bundler.
+   Everything in react is a component!
+   A component is a reusable piece of code.
+   Webpack is a bundler.
 
-### How to declare a component
+How to declare a component
 
 Both are equivalent
 
-```jsx
 class Dave extends React.Component {
-  render() {
-    return <p>What do you think you are doing, Dave?</p>;
-  }
+render() {
+return <p>What do you think you are doing, Dave?</p>;
 }
-```
+}
 
-```jsx
 const Dave = () => {
-  return <p>What do you think you are doing, Dave?</p>;
+return <p>What do you think you are doing, Dave?</p>;
 };
-```
 
-### Component structure
+Component structure
 
-```jsx
 // IMPORTS
 import React from "react";
 
 // COMPONENT
 class Dave extends React.Component {
-  render() {
-    return <p>What do you think you are doing, Dave?</p>;
-  }
+render() {
+return <p>What do you think you are doing, Dave?</p>;
+}
 }
 
 // EXPORT
 export default Dave;
-```
 
-### To JSX or to not JSX...
-
-#### With only one tag
+To JSX or to not JSX...
+With only one tag
 
 Both are equivalent
 
-```jsx
 <p>What do you think you are doing, Dave?</p>
-```
 
-```js
 React.createElement("p", {}, "What do you think you are doing, Dave?");
-```
 
-#### With nested tags
+With nested tags
 
 Both are equivalent
 
-```jsx
 <div>
   <p>What do you think you are doing, Dave?</p>
 </div>
-```
 
-```js
 React.createElement(
-  "div",
-  {},
-  React.createElement("p", {}, "What do you think you are doing, Dave?")
+"div",
+{},
+React.createElement("p", {}, "What do you think you are doing, Dave?")
 );
-```
 
-### JSX Gotchas!
+JSX Gotchas!
+Use className instead of class
 
-#### Use `className` instead of `class`
-
-```jsx
 return <p className="my-class">What do you think you are doing, Dave?</p>;
-```
 
-#### Beware ASI (Automatic Semicolon Insertion)
+Beware ASI (Automatic Semicolon Insertion)
 
-If you leave `return` alone in one line a semicolon is automatically inserted! Use `return ( .... )`.
+If you leave return alone in one line a semicolon is automatically inserted! Use return ( .... ).
 
-```jsx
 return (
+
   <div>
     <p className="my-class">What do you think you are doing, Dave?</p>
   </div>
 );
-```
 
-## 2. `props` and `state`
+2. props and state
 
-- `state`: where the data lives.
-- `props`: a way to get data (`state`) into a component.
+   state: where the data lives.
+   props: a way to get data (state) into a component.
 
-## 3. Functional Stateless Components
+3. Stateless Functional Components
 
 Five of them are equivalent
 
-```jsx
 class Header extends React.Component {
-  render() {
-    return (
-      <h3 className="tagline">
-        <span>{this.props.tagline}</span>
-      </h3>
-    );
-  }
+render() {
+return (
+<h3 className="tagline">
+<span>{this.props.tagline}</span>
+</h3>
+);
 }
-```
+}
 
-```jsx
 const Header = props => {
-  return (
-    <h3 className="tagline">
-      <span>{props.tagline}</span>
-    </h3>
-  );
+return (
+<h3 className="tagline">
+<span>{props.tagline}</span>
+</h3>
+);
 };
-```
 
-```jsx
 const Header = ({ tagline }) => {
-  return (
-    <h3 className="tagline">
-      <span>{tagline}</span>
-    </h3>
-  );
+return (
+<h3 className="tagline">
+<span>{tagline}</span>
+</h3>
+);
 };
-```
 
-```jsx
 const Header = props => (
+
   <h3 className="tagline">
     <span>{props.tagline}</span>
   </h3>
 );
-```
 
-###4 More tools
-
-```jsx
 const Header = ({ tagline }) => (
+
   <h3 className="tagline">
     <span>{tagline}</span>
   </h3>
 );
-```
 
-###5 Eventos en React
+4. Routing and Routers
 
-Syntectic Events en React
-Hey React! Cuando alguien clica el boton,ejecuta esa this(handleCLick),por favor:
+There's at least 3 great options for routing in React:
 
-```jsx
-<button onClick={this.handleCLick}>
-```
+    react-router
+    next.js
+    @reach/router
 
-### 6.Binding`this` inside un Componente
+We are going to use @reach/router but there's a branch with react/router too here
 
-Enganchar a nuestros componentes this.Binding our own functions/methods inside a `component`
+5. Events in React
 
-###Method1 Inside the `constructor`
+Synthetic Events in React
 
-``jsx
+Hey React! When somebody clicks the button, execute this (handleClick) point_down function, please:
+
+<button onClick={this.handleClick}>
+
+6. Binding this inside a Component
+
+Binding our own methods/functions inside a component.
+Method 1: Inside the constructor
+
 class StorePicker extends React.Component {
-constructor(props){
+constructor(props) {
 super(props);
 
     this.goToStore = this.goToStore.bind(this);
 
 }
 
-goToStore(event){}
-
+goToStore(event) {}
 }
 
-````
+Method 2: Declare a property instead of method/function inside the component
 
-### Method2 Declarar una `propiedad` instead de `method`/`function` inside el componente
-
-```jsx
 class StorePicker extends React.Component {
-goToStore =event => {};
+goToStore = event => {};
 }
-````
 
-Recuerda:Si tu must access `this` inside a custom method/function en un componente,necesitas bind `this` con Method1 o usando Method2.
+Remember: if you must access this inside a custom method/function in a component, you need to bind this with Method 1 or even better using Method 2.
 
-### 7 State en React
+7. State in React
 
--**State** es un JavaScript objeto que vive dentro de un componente y almacena todos los datos del componente y problamente los de los hijos que necesite.  
--**State** es solamente un JavaSrcipt objeto que contiene(holds) datos.
-React filosofía> (update) actualiza los datos(state) y deja que React coja y actualize los componentes por nós(let).
-Tu nuncas puedes pasar datos para arriba,solo para abajo.
+   State is a JavaScript Object that lives inside a component and stores all the data that the component and probably its children need.
+   State is just a JavaScript Object that holds data.
 
-Funciones que actualizan estado y el estado tienen que estar en el mismo componente.
+React philosophy: Update the data (state) and let it React take it and update components for us.
 
-###8 Managing secrets with .env
+You can never pass data up, you can only pass data down.
 
-Create a .env. file in the root of your project (same directory as package.json) and write there your secret keys:
+Functions that update state and the state itself need to be in the same component.
+
+8. Managing secrets with .env
+
+Create a .env file in the root of your project (same directory as package.json) and write there your secret keys:
 
 REACT_APP_API_KEY=<Your API key>
 REACT_APP_API_SECRET=<Your API secret>
@@ -278,77 +239,73 @@ process.env.REACT_APP_API_SECRET;
 
 And remember to .gitignore the .env file!!!
 
-### cool tricks
+9. Component Lyfecicle
 
-check out the `return null` trick from inside a `render()` method in a component.
-`order.js`
+Check out React Docs about React.Component Lifecicle. We are using:
 
-```js
-if (!fish) {
-  return null;
-}
-```
+    ComponentDidMount
+    ComponentDidUpdate
+    ComponentWillUnmount
 
-###9.Component Lyfecicle COpiar páginas.
-Check out React Docs about [React.Component LifeCycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle) We are using: -[ComponentDidMount](https://reactjs.org/docs/react-component.html#componentdidmount) -[ComponentDidUpdate](https://reactjs.org/docs/react-component.html#componentdidupdate) -[ComponentWillUnmount](https://reactjs.org/docs/react-component.html#componentwillunmount)
+V. Cool tricks
 
-### W.Cool function/method
+Check out the return null trick from inside a render() method in a component.
 
-json.stringify
-json.parse
+Order.js
 
-## x. Production build
+if (!fish) return null;
 
-Just run
+W. Cool functions/methods
 
-```sh
->npm run build
-```
+    JSON.stringify
+    JSON.parse
 
-### Deploying to `now`
+X. Production build
 
--[Now -Global Serverless Deployments]
--Create React App
+Just run point_down
 
-```
->npm install --g now
+❯ npm run build
+
+Deploying to now (CURRENTLY BROKEN)
+
+    Now — Global Serverless Deployments
+    Create React App Example
+
+❯ npm install -g now
 ❯ now -v
 12.1.3
->npm install serve
-```
 
-##Change `start` por `dev`.
+Change start script to dev script.
 
-```json
 "scripts": {
-"dev": "react-scripts start",
+"dev": "react-scripts start"
 }
-```
 
-##Create a `now.json`
+Create a now.json file at the root of your project
 
-```json
 {
-  "version": 2,
-  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
-  "routes": [
-    { "src": "^/static/(.*)", "dest": "/static/$1" },
-    { "src": ".*", "dest": "/index.html" }
-  ]
+"version": 2,
+"builds": [{ "src": "package.json", "use": "@now/static-build" }],
+"routes": [
+{ "src": "^/static/(.*)", "dest": "/static/$1" },
+{ "src": ".*", "dest": "/index.html" }
+]
 }
-```
 
-##Create a custom alias
+Create a custom alias point_down
 
-```
->now alias https://oferta-del-dia-ib9i5t5ue.now.sh obradoiroTeoFTW
-```
+❯ now alias https://oferta-del-dia-ib9i5t5ue.now.sh obradoiroTeoFTW
 
-You can access your site through `https://obradoiroteoftw.now.sh/
+You can access your site through https://obradoiroteoftw.now.sh/.
+Deploy to Netlify (WORKING)
 
-## Deploy
+tl;dr point_down
 
-###Deploy to Netlify
+❯ npm run deploy:netlify
+
+When asked for a deploy path: enter build.
+
+Long version point_down
 
 ❯ npm install -g netlify-cli
 ❯ netlify --version
@@ -358,12 +315,8 @@ Create a \_redirects file point_down
 
 /\* /index.html 200
 
+❯ npm run build
 ❯ cp \_redirects build/
 ❯ netlify deploy
 
-###
-
-return <li>Sorry {fish ? fish.name : "product"} is not available!</li>;
-Si existe poner el resultado sino poner producto
-cambio
-return <li key={orderKey}>Sorry {fish.name} is not available!</li>;
+When asked for a deploy path: enter build.
