@@ -1,221 +1,268 @@
-Oferta del dia
+# Oferta del dia
 
 Playing with React, Firebase and friends.
-space_invaderrobotrocket Clone, install... GO rocketrobotspace_invader
 
+## 👾🤖🚀 Clone, install... GO 🚀🤖👾
+
+```
 ❯ git clone git@github.com:davidgchaves/oferta-del-dia.git
 ❯ cd oferta-del-dia
 ❯ npm install
+```
 
-0. Installation and First Steps
-   How to install Node
+## 0. Installation and First Steps
 
-Since we are using fish shell, we need to:
+### How to install Node
 
-    Install NVM
+Since we are using [fish shell](https://fishshell.com/), we need to:
 
+1. Install [NVM](https://github.com/creationix/nvm)
+
+```
 ❯ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+```
 
-    Install fish-nvm
+2. Install [fish-nvm](https://github.com/FabioAntunes/fish-nvm)
 
+```
 ❯ fisher add FabioAntunes/fish-nvm
+```
 
-    Install Node 8 with NVM
+3. Install [Node 8](https://nodejs.org/en/) with NVM
 
+```
 ❯ nvm install 8
 ❯ node --version
 v8.12.0
 ❯ nvm alias default 8.12.0
+```
 
-How can I sync the project with a remote GitHub repository
+### How can I sync the project with a remote GitHub repository
 
+```
 ❯ git remote add origin git@github.com:davidgchaves/oferta-del-dia.git
 ❯ git push -u origin master
+```
 
-More tools
+### More tools
 
-    React Developer Tools extension for Firefox.
-    CMDer: Command Line Emulator for Windows.
-    Create React App 2
+- [React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) extension for Firefox.
+- [CMDer](http://cmder.net/): Command Line Emulator for Windows.
+- [Create React App 2](https://github.com/facebook/create-react-app)
 
-Troubleshooting
+### Troubleshooting
 
 Try
 
+```
 ❯ rm -rf node_modules/
 ❯ rm -rf package-lock.json
 ❯ npm install
 ❯ npm start
+```
 
-1. Intro to React
+## 1. Intro to React
 
-   Everything in react is a component!
-   A component is a reusable piece of code.
-   Webpack is a bundler.
+- Everything in react is a component!
+- A component is a reusable piece of code.
+- Webpack is a bundler.
 
-How to declare a component
+### How to declare a component
 
 Both are equivalent
 
+```jsx
 class Dave extends React.Component {
-render() {
-return <p>What do you think you are doing, Dave?</p>;
+  render() {
+    return <p>What do you think you are doing, Dave?</p>;
+  }
 }
-}
+```
 
+```jsx
 const Dave = () => {
-return <p>What do you think you are doing, Dave?</p>;
+  return <p>What do you think you are doing, Dave?</p>;
 };
+```
 
-Component structure
+### Component structure
 
+```jsx
 // IMPORTS
 import React from "react";
 
 // COMPONENT
 class Dave extends React.Component {
-render() {
-return <p>What do you think you are doing, Dave?</p>;
-}
+  render() {
+    return <p>What do you think you are doing, Dave?</p>;
+  }
 }
 
 // EXPORT
 export default Dave;
+```
 
-To JSX or to not JSX...
-With only one tag
+### To JSX or to not JSX...
+
+#### With only one tag
 
 Both are equivalent
 
+```jsx
 <p>What do you think you are doing, Dave?</p>
+```
 
+```js
 React.createElement("p", {}, "What do you think you are doing, Dave?");
+```
 
-With nested tags
+#### With nested tags
 
 Both are equivalent
 
+```jsx
 <div>
   <p>What do you think you are doing, Dave?</p>
 </div>
+```
 
+```js
 React.createElement(
-"div",
-{},
-React.createElement("p", {}, "What do you think you are doing, Dave?")
+  "div",
+  {},
+  React.createElement("p", {}, "What do you think you are doing, Dave?")
 );
+```
 
-JSX Gotchas!
-Use className instead of class
+### JSX Gotchas!
 
+#### Use `className` instead of `class`
+
+```jsx
 return <p className="my-class">What do you think you are doing, Dave?</p>;
+```
 
-Beware ASI (Automatic Semicolon Insertion)
+#### Beware ASI (Automatic Semicolon Insertion)
 
-If you leave return alone in one line a semicolon is automatically inserted! Use return ( .... ).
+If you leave `return` alone in one line a semicolon is automatically inserted! Use `return ( .... )`.
 
+```jsx
 return (
-
   <div>
     <p className="my-class">What do you think you are doing, Dave?</p>
   </div>
 );
+```
 
-2. props and state
+## 2. `props` and `state`
 
-   state: where the data lives.
-   props: a way to get data (state) into a component.
+- `state`: where the data lives.
+- `props`: a way to get data (`state`) into a component.
 
-3. Stateless Functional Components
+## 3. Stateless Functional Components
 
 Five of them are equivalent
 
+```jsx
 class Header extends React.Component {
-render() {
-return (
-<h3 className="tagline">
-<span>{this.props.tagline}</span>
-</h3>
-);
+  render() {
+    return (
+      <h3 className="tagline">
+        <span>{this.props.tagline}</span>
+      </h3>
+    );
+  }
 }
-}
+```
 
+```jsx
 const Header = props => {
-return (
-<h3 className="tagline">
-<span>{props.tagline}</span>
-</h3>
-);
+  return (
+    <h3 className="tagline">
+      <span>{props.tagline}</span>
+    </h3>
+  );
 };
+```
 
+```jsx
 const Header = ({ tagline }) => {
-return (
-<h3 className="tagline">
-<span>{tagline}</span>
-</h3>
-);
+  return (
+    <h3 className="tagline">
+      <span>{tagline}</span>
+    </h3>
+  );
 };
+```
 
+```jsx
 const Header = props => (
-
   <h3 className="tagline">
     <span>{props.tagline}</span>
   </h3>
 );
+```
 
+```jsx
 const Header = ({ tagline }) => (
-
   <h3 className="tagline">
     <span>{tagline}</span>
   </h3>
 );
+```
 
-4. Routing and Routers
+## 4. Routing and Routers
 
 There's at least 3 great options for routing in React:
 
-    react-router
-    next.js
-    @reach/router
+- [`react-router`](https://reacttraining.com/react-router/web/guides/quick-start)
+- [`next.js`](https://github.com/zeit/next.js/#routing)
+- [`@reach/router`](https://reach.tech/router)
 
-We are going to use @reach/router but there's a branch with react/router too here
+We are going to use `@reach/router` but there's a branch with `react/router` too [here](https://github.com/davidgchaves/oferta-del-dia/tree/react-router)
 
-5. Events in React
+## 5. Events in React
 
-Synthetic Events in React
+[Synthetic Events in React](https://reactjs.org/docs/events.html)
 
-Hey React! When somebody clicks the button, execute this (handleClick) point_down function, please:
+Hey React! When somebody clicks the button, execute this (`handleClick`) 👇 function, please:
 
+```jsx
 <button onClick={this.handleClick}>
+```
 
-6. Binding this inside a Component
+## 6. Binding `this` inside a Component
 
-Binding our own methods/functions inside a component.
-Method 1: Inside the constructor
+Binding our own methods/functions inside a `component`.
 
+### Method 1: Inside the `constructor`
+
+```jsx
 class StorePicker extends React.Component {
-constructor(props) {
-super(props);
+  constructor(props) {
+    super(props);
 
     this.goToStore = this.goToStore.bind(this);
+  }
 
+  goToStore(event) {}
 }
+```
 
-goToStore(event) {}
-}
+### Method 2: Declare a `property` instead of `method`/`function` inside the component
 
-Method 2: Declare a property instead of method/function inside the component
-
+```jsx
 class StorePicker extends React.Component {
-goToStore = event => {};
+  goToStore = event => {};
 }
+```
 
-Remember: if you must access this inside a custom method/function in a component, you need to bind this with Method 1 or even better using Method 2.
+**Remember**: if you must access `this` inside a custom method/function in a component, you need to bind `this` with Method 1 or even better using Method 2.
 
-7. State in React
+## 7. State in React
 
-   State is a JavaScript Object that lives inside a component and stores all the data that the component and probably its children need.
-   State is just a JavaScript Object that holds data.
+- **State** is a JavaScript Object that lives inside a component and stores all the data that the component and probably its children need.
+- **State** is just a JavaScript Object that holds data.
 
 React philosophy: Update the data (state) and let it React take it and update components for us.
 
@@ -223,100 +270,125 @@ You can never pass data up, you can only pass data down.
 
 Functions that update state and the state itself need to be in the same component.
 
-8. Managing secrets with .env
+## 8. Managing secrets with `.env`
 
-Create a .env file in the root of your project (same directory as package.json) and write there your secret keys:
+Create a `.env` file in the root of your project (same directory as `package.json`) and write there your secret keys:
 
+```
 REACT_APP_API_KEY=<Your API key>
 REACT_APP_API_SECRET=<Your API secret>
+```
 
-Very important: You need to prefix every secret with REACT*APP*.
+Very important: You need to prefix every secret with `REACT_APP_`.
 
 Use it from JavaScript like this:
 
+```js
 process.env.REACT_APP_API_KEY;
 process.env.REACT_APP_API_SECRET;
+```
 
-And remember to .gitignore the .env file!!!
+And remember to `.gitignore` the `.env` file!!!
 
-9. Component Lyfecicle
+## 9. Component Lyfecicle
 
-Check out React Docs about React.Component Lifecicle. We are using:
+Check out React Docs about [React.Component Lifecicle](https://reactjs.org/docs/react-component.html#the-component-lifecycle). We are using:
 
-    ComponentDidMount
-    ComponentDidUpdate
-    ComponentWillUnmount
+- [`ComponentDidMount`](https://reactjs.org/docs/react-component.html#componentdidmount)
+- [`ComponentDidUpdate`](https://reactjs.org/docs/react-component.html#componentdidupdate)
+- [`ComponentWillUnmount`](https://reactjs.org/docs/react-component.html#componentwillunmount)
 
-V. Cool tricks
+## V. Cool tricks
 
-Check out the return null trick from inside a render() method in a component.
+Check out the `return null` trick from inside a `render()` method in a component.
 
-Order.js
+`Order.js`
 
+```js
 if (!fish) return null;
+```
 
-W. Cool functions/methods
+## W. Cool functions/methods
 
-    JSON.stringify
-    JSON.parse
+- [`JSON.stringify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+- [`JSON.parse`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
 
-X. Production build
+## X. Production build
 
-Just run point_down
+Just run 👇
 
+```sh
 ❯ npm run build
+```
 
-Deploying to now (CURRENTLY BROKEN)
+### Deploying to `now` (CURRENTLY BROKEN)
 
-    Now — Global Serverless Deployments
-    Create React App Example
+- [Now — Global Serverless Deployments](https://zeit.co/now)
+- [Create React App Example](https://github.com/zeit/now-examples/tree/master/create-react-app)
 
+```
 ❯ npm install -g now
 ❯ now -v
 12.1.3
+```
 
-Change start script to dev script.
+Change `start` script to `dev` script.
 
+```json
 "scripts": {
-"dev": "react-scripts start"
+  "dev": "react-scripts start"
 }
+```
 
-Create a now.json file at the root of your project
+Create a `now.json` file at the root of your project
 
+```json
 {
-"version": 2,
-"builds": [{ "src": "package.json", "use": "@now/static-build" }],
-"routes": [
-{ "src": "^/static/(.*)", "dest": "/static/$1" },
-{ "src": ".*", "dest": "/index.html" }
-]
+  "version": 2,
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": ".*", "dest": "/index.html" }
+  ]
 }
+```
 
-Create a custom alias point_down
+Create a custom alias 👇
 
+```
 ❯ now alias https://oferta-del-dia-ib9i5t5ue.now.sh obradoiroTeoFTW
+```
 
-You can access your site through https://obradoiroteoftw.now.sh/.
-Deploy to Netlify (WORKING)
+You can access your site through `https://obradoiroteoftw.now.sh/`.
 
-tl;dr point_down
+### Deploy to Netlify (WORKING)
 
+tl;dr 👇
+
+```
 ❯ npm run deploy:netlify
+```
 
-When asked for a deploy path: enter build.
+When asked for a `deploy path:` enter `build`.
 
-Long version point_down
+Long version 👇
 
+```
 ❯ npm install -g netlify-cli
 ❯ netlify --version
 netlify-cli/2.2.1 darwin-x64 node-v8.12.0
+```
 
-Create a \_redirects file point_down
+Create a `_redirects` file 👇
 
-/\* /index.html 200
+```
+/*    /index.html   200
+```
 
+```
 ❯ npm run build
-❯ cp \_redirects build/
+❯ cp _redirects build/
 ❯ netlify deploy
+```
 
-When asked for a deploy path: enter build.
+When asked for a `deploy path:` enter `build`.
