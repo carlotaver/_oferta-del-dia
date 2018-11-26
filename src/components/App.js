@@ -5,6 +5,7 @@ import Order from "./Order";
 import Menu from "./Menu";
 import sampleFishes from "../sample-fishes";
 import base from "../base";
+import { stringify } from "querystring";
 
 class App extends React.Component {
   state = {
@@ -13,11 +14,23 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    // read mfrom localstorage
+    const localStorageRef = localStorage.getItem(this.props.storeId);
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
+
+    // Sync data from Firebase
     const config = {
       context: this,
       state: "fishes"
     };
     this.ref = base.syncState(`${this.props.storeId}/fishes`, config);
+  }
+
+  componentDidUpdate() {
+    //save to localstorage
+    localStorage.setItem(this.props.storeId, JSON.stringify(this.state.order));
   }
 
   componentWillUnMount() {

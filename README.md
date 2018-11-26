@@ -262,6 +262,41 @@ Tu nuncas puedes pasar datos para arriba,solo para abajo.
 
 Funciones que actualizan estado y el estado tienen que estar en el mismo componente.
 
+###8 Managing secrets with .env
+
+Create a .env. file in the root of your project (same directory as package.json) and write there your secret keys:
+
+REACT_APP_API_KEY=<Your API key>
+REACT_APP_API_SECRET=<Your API secret>
+
+Very important: You need to prefix every secret with REACT*APP*.
+
+Use it from JavaScript like this:
+
+process.env.REACT_APP_API_KEY;
+process.env.REACT_APP_API_SECRET;
+
+And remember to .gitignore the .env file!!!
+
+### cool tricks
+
+check out the `return null` trick from inside a `render()` method in a component.
+`order.js`
+
+```js
+if (!fish) {
+  return null;
+}
+```
+
+###9.Component Lyfecicle COpiar páginas.
+Check out React Docs about [React.Component LifeCycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle) We are using: -[ComponentDidMount](https://reactjs.org/docs/react-component.html#componentdidmount) -[ComponentDidUpdate](https://reactjs.org/docs/react-component.html#componentdidupdate) -[ComponentWillUnmount](https://reactjs.org/docs/react-component.html#componentwillunmount)
+
+### W.Cool function/method
+
+json.stringify
+json.parse
+
 ## x. Production build
 
 Just run
